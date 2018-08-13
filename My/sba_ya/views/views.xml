@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+	<!-- Product view modification -->
+	<record model="ir.ui.view" id="product_template_url_field">
+		<field name="name">product.template.url</field>
+		<field name="model">product.template</field>
+		<field name="inherit_id" ref="product.product_template_form_view" />
+		<field name="arch" type="xml">
+			<field name="active" position="after">
+				<field name="to_yandex"/>
+				<!-- field name='picture_url'/ -->
+			</field>
+		</field>
+	</record>
+    </data>
+</openerp>
+
+
+

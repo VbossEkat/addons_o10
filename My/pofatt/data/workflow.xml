@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<openerp>
+    <data noupdate="1">
+            
+    <record id="wkf3" model="workflow">
+        <field name="name">pofat</field>
+        <field name="osv">pofatt</field>
+        <field name="on_create">True</field>
+    </record>
+
+    
+    <record id="act_Cancel" model="workflow.activity">
+        <field name="wkf_id" ref="wkf3"/>
+        <field name="name">Cancel</field>
+        
+        
+        <field name="kind">function</field>
+        
+        
+        
+        
+        
+        
+    </record>
+    
+    <record id="act_Confirme" model="workflow.activity">
+        <field name="wkf_id" ref="wkf3"/>
+        <field name="name">Confirme</field>
+        
+        
+        <field name="kind">function</field>
+        
+        
+        
+        
+        
+        
+    </record>
+    
+    <record id="act_Create" model="workflow.activity">
+        <field name="wkf_id" ref="wkf3"/>
+        <field name="name">Create</field>
+        
+        
+        <field name="kind">dummy</field>
+        
+        
+        <field name="flow_start">True</field>
+        
+        
+        
+    </record>
+    
+    <record id="act_To_archive" model="workflow.activity">
+        <field name="wkf_id" ref="wkf3"/>
+        <field name="name">To_archive</field>
+        
+        
+        <field name="kind">dummy</field>
+        
+        <field name="flow_stop">True</field>
+        
+        
+        
+        
+    </record>
+    
+    <record id="act_Use" model="workflow.activity">
+        <field name="wkf_id" ref="wkf3"/>
+        <field name="name">Use</field>
+        
+        
+        <field name="kind">function</field>
+        
+        
+        
+        
+        
+        
+    </record>
+    
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+
+        
+    </data>
+</openerp>

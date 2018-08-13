@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+            <!-- field name="priority">15</field-->
+<openerp>
+      <data>
+          <template id="point_of_sale.sba_index"
+                    inherit_id="point_of_sale.index"
+                    name="SBA POS Index"
+                    priority="15">
+                     <xpath expr="//title" position="replace">
+                        <title>SbaErp POS</title>
+                     </xpath>
+          </template>
+      </data>
+</openerp>

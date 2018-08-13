@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="acquirer_form_payanyway" model="ir.ui.view">
+            <field name="name">acquirer.form.payanyway</field>
+            <field name="model">payment.acquirer</field>
+            <field name="inherit_id" ref="payment.acquirer_form"/>
+            <field name="arch" type="xml">
+                <xpath expr='//group[@name="acquirer"]' position='after'>
+                    <group attrs="{'invisible': [('provider', '!=', 'payanyway')]}">
+                        <field name="payanyway_mnt_id" />
+                        <field name="payanyway_mnt_secret" password="True" />
+                        <field name="payanyway_mnt_test_mode"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

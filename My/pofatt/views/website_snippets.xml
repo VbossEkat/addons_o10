@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        
+   <template id="pofatt.snippets" inherit_id="website.snippets" name="Snippets">
+   
+       
+        <xpath expr="//div[@id='snippet_content']" position="inside">
+            
+                <div>
+                    <div class="oe_snippet_thumbnail">
+                        
+                            <span data-size="fa-5x" class="fa-4x fa fa-question-circle" style="line-height: inherit;"></span>
+                        
+                        <span class="oe_snippet_thumbnail_title">test_snip</span>
+                    </div>
+                    <section class="oe_snippet_body">
+                        <div class="oe_structure">
+                            
+
+<section class="parallax s_parallax oe_img_bg mt128 automatic-color" data-scroll-background-offset="0" data-scroll-background-ratio="0.3" style="height: 456px; overflow: hidden; background-image: url(&quot;/website/static/src/img/banner/orange_red.jpg&quot;); background-attachment: scroll; background-position: 0px 0px;">
+<div>
+<div class="oe_structure"></div>
+</div>
+</section>
+
+                        </div>
+                    </section>
+                </div>
+            
+                <div>
+                    <div class="oe_snippet_thumbnail">
+                        
+                            <span data-size="fa-5x" class="fa-4x fa fa-question-circle" style="line-height: inherit;"></span>
+                        
+                        <span class="oe_snippet_thumbnail_title">test_snip_eff</span>
+                    </div>
+                    <section class="oe_snippet_body">
+                        <div class="oe_structure">
+                            
+
+<section class="s_text_block para_large oe_custom_bg oe_img_bg" style='background-image: url("/website/image/ir.attachment/252_68e0bd6/datas");'>
+<div class="container">
+<div class="row">
+<div class="col-md-12 text-center mt16 mb32">
+<h1>A Great Headline</h1>
+
+<h1 class="text-muted">A good subtitle</h1>
+</div>
+
+<div class="col-md-12 mb16 mt16">
+<p>A great way to catch your reader's attention is to tell a story. Everything you consider writing can be told as a story.</p>
+
+<p><b>Great stories have personality.</b> Consider telling a great story that provides personality. Writing a story with personality for potential clients will asist with making a relationship connection. This shows up in small quirks like word choices or phrases. Write from your point of view, not from someone else's experience.</p>
+
+<p><b>Great stories are for everyone even when only written for just one person.</b> If you try to write with a wide general audience in mind, your story will ring false and be bland. No one will be interested. Write for one person. If it&#8217;s genuine for the one, it&#8217;s genuine for the rest.</p>
+</div>
+</div>
+</div>
+</section>
+
+                        </div>
+                    </section>
+                </div>
+            
+        </xpath>
+        
+   
+   </template>
+
+    </data>
+</openerp>

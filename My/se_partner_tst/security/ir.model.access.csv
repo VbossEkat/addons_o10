@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_se_partner_tst_se_partner_tst,se_partner_tst.se_partner_tst,model_se_partner_tst_se_partner_tst,,1,0,0,0

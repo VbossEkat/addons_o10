@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="sba_debrand_0001" name="SBA Debranding title JS"
+                  inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript"
+                        src="/sba_db_mang_debrand/static/src/js/debr.js"></script>
+            </xpath>
+        </template>
+    </data>
+</openerp>

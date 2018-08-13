@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-extend="Chrome">
+        <!-- нерабочее  t t-jquery="pos-logo" t-operation="replace"-->
+        <!-- нерабочее  t t-jquery=".pos-logo" t-operation="replace"-->
+        <t t-jquery="img" t-operation="replace">
+            <img class="pos-logo" src="/sba_pos/static/src/img/logoSBA.png" />
+        </t>
+    </t>
+</templates>
+

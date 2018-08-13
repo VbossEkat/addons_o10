@@ -1,0 +1,185 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="product_pricelist_view_search_1">
+            <field name="name">product.pricelist.search</field>
+            <field name="model">product.pricelist</field>
+            <field name="inherit_id" ref="product_pricelist_view_search"/>
+            <field name="arch" type="xml">
+                <search string="Products Price Search">
+                    <field name="name" />
+                    <field name="type" />
+                    <field name="currency_id" groups="base.group_multi_currency" invisible="1" />
+                    <field name="active" /><field name="ef_PartnerId" string="Partner"> </field>
+                </search>
+            </field>
+        </record>
+ <!-- Исправленый -->
+        <record model="ir.ui.view" id="product_pricelist_view_search">
+            <field name="name">product.pricelist.search</field>
+            <field name="model">product.pricelist</field>
+            <field name="arch" type="xml">
+                <search string="Products Price Search">
+                    <field name="name" />
+                    <field name="type" />
+                    <field name="currency_id" groups="base.group_multi_currency" invisible="1" />
+                    <field name="active" /><field name="x_PartnerId" string="Контагент"> </field>
+                </search>
+            </field>
+        </record>
+<!-- Родной -->        
+        <record model="ir.ui.view" id="product_pricelist_view_search">
+            <field name="name">product.pricelist.search</field>
+            <field name="model">product.pricelist</field>
+            <field name="arch" type="xml">
+                <search string="Products Price Search">
+                    <field name="name" string="Products Price"/>
+                    <field name="type"/>
+                    <field name="active" />
+                    <field name="currency_id" groups="base.group_multi_currency"/>
+                </search>
+            </field>
+        </record>
+ <!-- Исправленый -->
+        <record id="product_pricelist_view" model="ir.ui.view">
+            <field name="name">product.pricelist.form</field>
+            <field name="model">product.pricelist</field>
+            <field name="arch" type="xml">
+				<form string="Products Price List">
+                    <label class="oe_edit_only" for="name" />
+                    <h1>
+                        <field name="name" />
+                    </h1>
+                    <group col="4">
+                        <field name="active" />
+                        <field name="x_is_comp" />
+                        <field name="type" />
+                        <field name="company_id" required="1" groups="base.group_multi_company"   widget="selection" />
+                        <field name="x_PartnerId" string="Контрагент" />
+                   </group>
+                    <field name="version_id" context="{'type':type}">
+                        <form string="Pricelist Version">
+                            <group col="4">
+                                <field name="name" />
+                                <field name="active" />
+                                <field name="date_start" />
+                                <field name="date_end" />
+                            </group>
+                            <field name="items_id" context="{'type':type}" />
+                        </form>
+                        <tree string="Pricelist Version">
+                            <field name="name" />
+                            <field name="active" />
+                            <field name="date_start" />
+                            <field name="date_end" />
+                        </tree>
+                    </field>
+                </form>            
+            </field>
+        </record>
+
+<!-- Родной -->        
+        <record id="product_pricelist_view" model="ir.ui.view">
+            <field name="name">product.pricelist.form</field>
+            <field name="model">product.pricelist</field>
+            <field name="arch" type="xml">
+                <form string="Products Price List">
+                    <label for="name" class="oe_edit_only"/>
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                    <group col="4">
+                        <field name="active"/>
+                        <field name="type"/>
+                        <field name="currency_id" groups="base.group_multi_currency"/>
+                        <field name="company_id" groups="base.group_multi_company" widget="selection"/>
+                    </group>
+                    <field name="version_id" context="{'type':type}">
+                        <form string="Pricelist Version">
+                            <group col="4">
+                                <field name="name"/>
+                                <field name="active"/>
+                                <field name="date_start"/>
+                                <field name="date_end"/>
+                            </group>
+                            <field name="items_id" context="{'type':type}"/>
+                        </form>
+                        <tree string="Pricelist Version">
+                            <field name="name"/>
+                            <field name="active"/>
+                            <field name="date_start"/>
+                            <field name="date_end"/>
+                        </tree>
+                    </field>
+                </form>
+            </field>
+        </record>
+
+
+ 
+        <record id="product_pricelist_view" model="ir.ui.view">
+            <field name="name">product.pricelist.form</field>
+            <field name="model">product.pricelist</field>
+            <field name="arch" type="xml">
+                <form string="Products Price List">
+                    <label for="name" class="oe_edit_only"/>
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                    <group col="4">
+                        <field name="active" />
+                        <field name="ef_is_comp" />
+                        <field name="type" />
+                        <field name="company_id" required="1" groups="base.group_multi_company"   widget="selection" />
+                        <field name="ef_PartnerId" string="Контрагент" />
+                   </group>
+                    <field name="version_id" context="{'type':type}">
+                        <form string="Pricelist Version">
+                            <group col="4">
+                                <field name="name"/>
+                                <field name="active"/>
+                                <field name="date_start"/>
+                                <field name="date_end"/>
+                            </group>
+                            <field name="items_id" context="{'type':type}"/>
+                        </form>
+                        <tree string="Pricelist Version">
+                            <field name="name"/>
+                            <field name="active"/>
+                            <field name="date_start"/>
+                            <field name="date_end"/>
+                        </tree>
+                    </field>
+                </form>
+            </field>
+        </record>        
+ 
+         <record id="product_pricelist_action2" model="ir.actions.act_window">
+            <field name="name">Pricelists</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.pricelist</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="product_pricelist_view_search" />
+            <field name="context">{"default_type":"sale", "search_default_type":"sale"}</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to create a pricelist.
+              </p><p>
+                A price list contains rules to be evaluated in order to compute
+                the sales price of the products.
+              </p><p>
+                Price lists may have several versions (2010, 2011, Promotion of
+                February 2010, etc.) and each version may have several rules.
+                (e.g. the customer price of a product category will be based on
+                the supplier price multiplied by 1.80).
+              </p>
+            </field>
+        </record>
+       
+       <menuitem
+            id="menu_product_pricelist_action2" action="product_pricelist_action2" 
+            parent="product.menu_product_pricelist_main" sequence="1" groups="product.group_sale_pricelist"/>
+   
+    </data>
+</openerp>

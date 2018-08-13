@@ -1,0 +1,6 @@
+tested with Odoo 10.0
+
+PayURL: http://your_website/payment/payanyway/payurl
+SuccessURL: http://your_website/payment/payanyway/success
+FailURL: http://your_website/payment/payanyway/fail
+ReturnURL: http://your_website/payment/payanyway/return

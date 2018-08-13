@@ -1,0 +1,44 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * payment_payanyway
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0c\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-05-17 14:00+0000\n"
+"PO-Revision-Date: 2017-05-17 14:00+0000\n"
+"Last-Translator: PayAnyWay, 2017\n"
+"Language-Team: PayAnyWay\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: ru\n"
+
+msgid "; multiple order found"
+msgstr "; найден многократный заказ"
+
+msgid "You will be redirected to the PayAnyWay website after clicking on the payment button."
+msgstr "Вы будете перенаправлены на сайт PayAnyWay после нажатия на кнопку оплаты."
+
+msgid "; no order found"
+msgstr "; заказ не найден"
+
+msgid "Payment Acquirer"
+msgstr "Платежи клиентов"
+
+msgid "Payment Transaction"
+msgstr "Операция Оплаты"
+
+msgid "Merchant ID"
+msgstr "Номер расширенного счёта"
+
+msgid "Code of data integrity verification"
+msgstr "Код проверки целостности данных"
+
+msgid "Test mode"
+msgstr "Тестовый режим"
+
+msgid "PayAnyWay: received data for reference %s"
+msgstr "PayAnyWay: получены данные по заказу (reference) %s"
+

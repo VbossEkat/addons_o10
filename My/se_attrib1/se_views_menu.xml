@@ -1,0 +1,232 @@
+<?xml version="1.0"?>
+<openerp>
+ 
+ <!-- ВАЖНО:  для применения изменений достаточно перегрузить модуль (ODOO перегружать не обязательно) -->
+    <data>
+         <record id="product_pricelist_view_tree1" model="ir.ui.view">
+            <field name="name">product.pricelist.tree</field>
+            <field name="model">product.pricelist</field>
+            <field name="priority">15</field>
+            <field name="arch" type="xml">
+                <tree string="Products Price Search">
+                    <field name="name" />
+                    <field name="type" />
+                    <field name="currency_id" groups="base.group_multi_currency" invisible="1" />
+                    <field name="active" /><field name="ef_partnerid" string="Контрагент"> </field>
+                </tree>
+            </field>
+        </record>
+
+         <record id="product_pricelist_version_gantt" model="ir.ui.view">
+            <field name="name">product.pricelist.version.gantt</field>
+            <field name="model">product.pricelist.version</field>
+            <field name="priority">99</field>
+            <field name="arch" type="xml">
+				<gantt default_group_by="state" date_start="date_start" date_stop="date_end"/>
+             </field>
+        </record>
+
+
+         <record id="product_pricelist_version_kanban" model="ir.ui.view">
+            <field name="name">product.pricelist.version.kanban</field>
+            <field name="model">product.pricelist.version</field>
+            <field name="priority">99</field>
+            <field name="arch" type="xml">
+				<kanban default_group_by="state">
+                    <field name="state"/>
+                    <field name="active"/>
+                    <field name="create_uid"/>
+                    <templates>
+                        <field name="date_end"/>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_color_#{kanban_getcolor(record.pricelist_id)} oe_kanban_card oe_kanban_global_click">
+                               <div class="oe_dropdown_toggle oe_dropdown_kanban">
+                                    <span class="oe_e">í</span>
+                                    <ul class="oe_dropdown_menu">
+                                        <t t-if="widget.view.is_action_enabled('edit')"><li><a type="edit">Edit...</a></li></t>
+                                        <t t-if="widget.view.is_action_enabled('delete')"><li><a type="delete">Delete</a></li></t>
+                                        <li><a name="87" type="action">Send Email</a></li>
+                                        <li><a type="action" name="491">Calls</a></li>
+                                        <li><ul class="oe_kanban_colorpicker" data-field="pricelist_id"/></li>
+                                    </ul>
+                                </div>
+                                <div class="oe_kanban_content">
+                                    <div>
+                                        <field name="company_id"/>
+                                    </div>
+                                    <div style="padding-left: 0.5em">
+                                        <t t-if="record.date_end.raw_value and record.date_end.raw_value lt (new Date())" t-set="red">oe_kanban_text_red</t>
+                                        <span t-attf-class="#{red || ''}"><field name="date_start"/></span>
+                                        <t t-if="record.date_start.raw_value"> : </t>
+                                        <field name="name"/>
+                                    </div>
+                                    <div class="oe_kanban_bottom_right">
+                                        <!--  img t-att-src="kanban_image('res.users', 'image_small', record.create_uid.raw_value)" t-att-title="record.create_uid.raw_value" width="24" height="24" class="oe_kanban_avatar pull-right"/-->
+                                    </div>
+                                </div>
+                                <div class="oe_clear"/>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+
+         <record id="product_pricelist_version_form2" model="ir.ui.view">
+            <field name="name">product.pricelist.version.form2</field>
+            <field name="model">product.pricelist.version</field>
+            <field name="priority">15</field>
+            <field name="arch" type="xml">
+  				<form string="Pricelist Version">
+                   <!--The header tag is built to add buttons within. This puts them at the top -->
+                    <header>
+                       <button string="В черновик"  name="draft"      states="confirmed,progress,finished"/>
+                       <button string="Утверждено"  name="confirmed"  states="draft,progress,finished"/>
+                       <button string="Действующая" name="progress"   states="draft,confirmed,finished"/>
+                       <button string="Завершена"   name="finished_progressbar"  states="draft,confirmed,progress"/>
+                       <!--This will create the statusbar, thanks to the widget. -->
+                       <field name="state" widget="statusbar"/>
+                    </header>
+                    <group>
+                       <group>
+                            <field name="name"/>
+                            <field name="pricelist_id"/>
+                            <field name="company_id" groups="base.group_multi_company" widget="selection"/>
+                        </group>
+                        <group>
+                            <field name="date_start"/>
+                            <field name="date_end"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <notebook>
+                    <page string="Item List">
+                        <field name="items_id"/>
+                    </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+        
+        <record id="product_pricelist_view" model="ir.ui.view">
+            <field name="name">product.pricelist.form</field>
+            <field name="model">product.pricelist</field>
+            <field name="arch" type="xml">
+				<form string="Products Price List">
+                    <label class="oe_edit_only" for="name" />
+                    <h1>
+                        <field name="name" />
+                    </h1>
+                    <group col="4">
+                        <field name="active" />
+                        <field name="type" />
+                        <field name="ef_is_comp" string="Это акция"/>
+                        <field name="company_id" required="1" groups="base.group_multi_company"   widget="selection" string="Наша Фирма" />
+                        <field name="ef_partnerid" string="Контрагент" />
+                   </group>
+                    <field name="version_id" context="{'type':type}">
+                        <form string="Pricelist Version">
+                            <group col="4">
+                                <field name="name" />
+                                <field name="active" />
+                                <field name="date_start" />
+                                <field name="date_end" />
+                            </group>
+						    <field name="items_id" context="{'type':type}" />
+                        </form>
+                        <tree string="Pricelist Version">
+                            <field name="name" />
+                            <field name="active" />
+                            <field name="date_start" />
+                            <field name="date_end" />
+                        </tree>
+                    </field>
+                </form>            
+            </field>
+        </record>
+
+         <record id="product_pricelist_flat_action" model="ir.actions.act_window">
+            <field name="name">PricelistsFlat</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.pricelist</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="product.product_pricelist_view_search" />
+            <field name="context">{"default_type":"sale", "search_default_type":"sale"}</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to create a pricelist.
+              </p><p>
+                A price list contains rules to be evaluated in order to compute
+                the sales price of the products.
+              </p><p>
+                Price lists may have several versions (2010, 2011, Promotion of
+                February 2010, etc.) and each version may have several rules.
+                (e.g. the customer price of a product category will be based on
+                the supplier price multiplied by 1.80).
+              </p>
+            </field>
+        </record>
+        <menuitem
+            id="menu_product_pricelist_flat" action="product_pricelist_flat_action" 
+            parent="product.menu_product_pricelist_main" sequence="4" groups="product.group_sale_pricelist"/>
+        <menuitem
+            id="menu_product_pricelist_flat" action="product_pricelist_flat_action" 
+            parent="purchase.menu_purchase_config_pricelist" sequence="4" groups="product.group_purchase_pricelist"/>
+            
+         <record id="product_pricelist_item_tree_flat_view" model="ir.ui.view">
+            <field name="name">product.pricelist.item</field>
+            <!-- field name="model">product.pricelist</field-->
+            <field name="model">product.pricelist.item</field>
+            <field name="priority">15</field>
+            <field name="arch" type="xml">
+				<!-- editable="bottom" /-->
+				<tree string="Products Listprices Items" editable="bottom">
+				                    <field name="sequence"/>
+				                    <!--field colspan="4" name="name"/-->
+				                    <field name="categ_id"/>
+				                    <field name="product_id"/>
+				                    <!--field name="product_tmpl_id"/-->
+				                    <field name="price_discount"/>
+				                    <field name="price_surcharge"/>
+				                    <field name="min_quantity"/>
+				                    <field name="base"/>
+				                    <field name="base_pricelist_id"/>
+				                </tree>
+	            </field>
+	        </record>
+
+        <record id="PriceList_import_view" model="ir.ui.view">
+	      <field name="name">Import PriceList Excel File</field>
+	      <field name="model">product.pricelist.import</field>
+	      <field name="priority">1</field>
+	      <field name="arch" type="xml">
+	      <form string="Import PriceList Excel File" width="2000">
+ 	            <!--group col="2" width="2000"-->
+                    <separator string="Import PriceList Excel File"/>
+                        <!--field height="300" width="700" name="line_ids" domain="[('account_id.type','in',['receivable','payable']),('reconcile_id','=',False), ('reconcile_partial_id','=',False), ('state', '=', 'valid')]"/-->
+	                <field height="300" width="700" name="file_data" filename="file_fname" placeholder="Название файла, содержащего прайс"/>
+	            <!--/group-->
+	            <footer>
+	                <button name="file_parsing" string="_Import" type="object" class="oe_highlight"/>
+	                or
+	                <button string="Cancel" class="oe_link" special="cancel"/>
+	            </footer>
+	        </form>
+	      </field>
+    	</record>
+        <record id="action_PriceList_SE_import" model="ir.actions.act_window">
+	      <field name="name">Import PriceList Excel File</field>
+	      <field name="type">ir.actions.act_window</field>
+	      <field name="res_model">product.pricelist.import</field>
+	      <!--field name="res_model">product.pricelist.import</field-->
+	      <field name="view_type">form</field>
+	      <field name="view_mode">form</field>
+	      <field name="target">new</field>
+	      <field name="view_id" ref="PriceList_import_view"/>
+    	</record>
+        <menuitem name="Import PriseList Excel File" parent="purchase.menu_purchase_config_pricelist" id="menu_PriceList_SE_import" action="action_PriceList_SE_import" sequence="10"/>
+      </data>
+</openerp>

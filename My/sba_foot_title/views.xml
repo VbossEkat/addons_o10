@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+            <!-- field name="priority">15</field-->
+
+<openerp>
+  <data>
+      <template id="website.layout_footer_copyright"
+                inherit_id="website.layout"
+                name="SBA Footer Copyright"
+                priority="15">
+          <xpath expr="//footer" position="inside">
+			<div class="FooterBot">
+				<div class="col-md-4 .foot21">
+                        <h4>
+                        <a href="https://sba.realstore.ru" target="_blank">Copyright © 2001-TODAY</a>
+                        </h4>
+				</div>
+				<div class="col-md-4 .foot22">
+                        <h4>
+                        <a href="https://sba.realstore.ru" target="_blank">SBA Web Solutions</a>
+                        </h4>
+				</div>
+				<div class="col-md-4 .foot23">
+                        <h4>
+                        <a href="https://sba.realstore.ru" target="_blank"><span t-field="res_company.name" ></span>. All Rights Reserved</a>
+                        </h4>
+				</div>
+			</div>
+          </xpath>
+      </template>
+      <template id="sba_footer_default"
+                inherit_id="website.footer_default"
+                name="SBA Automatic Footer"
+                priority="11">
+            <xpath expr="//div[@id='footer']" position="replace">
+                <div id="footer" class="container hidden-print">
+                    <div class="row">
+                        <div class="col-md-5 col-lg-2">
+                            <h4>Our Products &amp; Services</h4>
+                            <ul class="list-unstyled" id="products">
+                                <li><a href="/">Home</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-5  col-lg-3" id="info">
+                            <h4>Connect with us</h4>
+                            <ul class="list-unstyled">
+                                <li><a href="/page/website.contactus">Contact us</a></li>
+                            </ul>
+                            <ul class="list-unstyled">
+                                <li t-ignore="true"><i class="fa fa-phone"/> <span t-field="res_company.phone"/></li>
+                                <li t-ignore="true"><i class="fa fa-envelope"/>  <span t-field="res_company.email"/></li>
+                            </ul>
+                            <h2>
+                                <a t-att-href="website.social_facebook" t-if="website.social_facebook"><i class="fa fa-facebook-square"/></a>
+                                <a t-att-href="website.social_twitter" t-if="website.social_twitter"><i class="fa fa-twitter"/></a>
+                                <a t-att-href="website.social_linkedin" t-if="website.social_linkedin"><i class="fa fa-linkedin"/></a>
+                                <a t-att-href="website.social_youtube" t-if="website.social_youtube"><i class="fa fa-youtube-play"/></a>
+                                <a t-att-href="website.social_googleplus" t-if="website.social_googleplus" rel="publisher"><i class="fa fa-google-plus-square"/></a>
+                                <a t-att-href="website.social_github" t-if="website.social_github"><i class="fa fa-github"/></a>
+                            </h2>
+                        </div>
+                        <div class="col-md-5 col-lg-6">
+                            <h4>
+                                <span t-field="res_company.name"/>
+                                <small> - <a href="/page/website.aboutus">About us</a></small>
+                            </h4>
+                            <div>
+                                <p>
+                                    У нас есть личный опыт, поэтому мы понимаем потребности наших клиентов, обеспечивая
+                                    Вас ИТ-оборудованием и программным обеспечением. Мы считаем, что ИТ и
+                                    бизнес-процессы идут рука об руку и их нельзя изолировать. Такой подход делает нас
+                                    уникальными и позволяет понять Ваши потребности и предложить комплексное решение,
+                                    которое соответствует текущей и будущей стратегии и целям Руководителя и Владельца.
+                                </p>
+                                <p>
+                                    С нашей, постоянно растущей, командой инженеров  Microsoft и Linux, разработчиков
+                                    приложений и менеджеров проектов, мы выполняем миссию с целью помочь Вам освоить
+                                    современные технологии. Сосредотачивая внимания на секторе малых и средних
+                                    предприятий, мы поставляем доступные, эффективные решения, которые могут улучшить
+                                    Ваш бизнес - являетесь ли Вы индивидуальным предпринимателем с парой сотрудников,
+                                    или более крупной компанией со штатом 10-500 человек.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4  col-lg-1" id="info">
+                            <div class="row">
+                                <t t-call="website.language_selector"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+       </template>
+
+
+      <!--template id="footer_default" inherit_id="website.footer_default" customize_show="True" name="Automatic SBA Footer">
+	//*[@id="footer"]/div/div[3]/div    div class="col-md-5 col-lg-offset-1"
+	    <xpath expr="//div[@class='col-md-5 col-lg-offset-1']/div" position="replace">
+            <div>
+                <h4>
+                    <span t-field="res_company.name" />
+                    <small> - <a href="/page/website.aboutus">About us</a></small>
+                </h4>
+                <p align="justify">
+У нас есть личный опыт, поэтому мы понимаем потребности наших клиентов, обеспечивая Вас ИТ-оборудованием и программным обеспечением. Мы считаем, что ИТ и бизнес-процессы идут рука об руку и их нельзя изолировать. Такой подход делает нас  уникальными и позволяет понять Ваши потребности и предложить комплексное решение, которое соответствует текущей и будущей стратегии и целям Руководителя и Владельца.                </p>
+                <p align="justify">
+С нашей, постоянно растущей, командой инженеров  Microsoft и Linux, разработчиков приложений и менеджеров проектов, мы выполняем миссию с целью помочь Вам освоить современные технологии. Сосредотачивая внимания на секторе малых и средних предприятий, мы поставляем доступные, эффективные решения, которые могут улучшить Ваш бизнес - являетесь ли Вы индивидуальным предпринимателем с парой сотрудников, или более крупной компанией со штатом 10-500 человек.                </p>
+            </div>
+	    </xpath>
+	</template-->
+    <!--template id="SBAaboutus" inherit_id="website.aboutus">
+       <xpath expr="//section[@data-snippet-id='title']" position="replace">
+           <section data-snippet-id="title">
+               <div class="container">
+                   <div class="row">
+                       <div class="col-md-12">
+                           <h1 class="text-center">About us</h1>
+                           <h3 class="text-muted text-center">Лучшие решения для лучших людей</h3>
+                       </div>
+                   </div>
+               </div>
+           </section>
+       </xpath>
+       <xpath expr="//section[@data-snippet-id='text-image']" position="replace">
+           <section data-snippet-id="text-image">
+               <div class="container">
+                   <div class="row">
+                       <div class="col-md-6 mt32">
+                           <p align="justify">
+У нас есть личный опыт, поэтому мы понимаем потребности наших клиентов, обеспечивая Вас ИТ-оборудованием и программным обеспечением. Мы считаем, что ИТ и бизнес-процессы идут рука об руку и их нельзя изолировать. Такой подход делает нас  уникальными и позволяет понять Ваши потребности и предложить комплексное решение, которое соответствует текущей и будущей стратегии и целям Руководителя и Владельца.                           </p>
+                           <p align="justify">
+С нашей, постоянно растущей, командой инженеров  Microsoft и Linux, разработчиков приложений и менеджеров проектов, мы выполняем миссию с целью помочь Вам освоить современные технологии. Сосредотачивая внимания на секторе малых и средних предприятий, мы поставляем доступные, эффективные решения, которые могут улучшить Ваш бизнес - являетесь ли Вы индивидуальным предпринимателем с парой сотрудников, или более крупной компанией со штатом 10-500 человек.                           </p>
+                       </div>
+                       <div class="col-md-4 col-md-offset-2 mt16 mb16">
+                           <img src="/website/static/src/img/library/business_conference.jpg" class="img img-responsive shadow" alt="Our Team"/>
+                       </div>
+                   </div>
+               </div>
+           </section>
+       </xpath>
+    </template-->
+<!-- корректируем данные на карте -->
+	<!--template id="sbas_google_map" inherit_id="snippet_google_map.s_google_map" customize_show="True" name="SBA google map">
+	    <xpath expr="//section[@class='s_google_map']" position="replace">
+		    <section class="s_google_map" data-map-type="ROADMAP" data-map-color="" data-map-zoom="19" data-map-gps="(56.81544444,60.61288789)" data-pin-style="flat" style="height: 488px; overflow: hidden;">
+		      <div class="map_container"/> 
+		      <div class="description">
+		        <font>Visit us:</font>
+		        <span> Our office is located in the center of Yekaterinburg. TEL (343) 372 3209 </span>
+		      </div>
+		    </section>
+	    </xpath>
+	</template-->
+	</data>
+</openerp>

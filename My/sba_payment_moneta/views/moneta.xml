@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+        <template id="moneta_acquirer_button">
+            <!--form t-if="acquirer" t-att-action="tx_url" method="post" target="_self"-->
+
+            <!-- form t-if="acquirer" t-att-action="https://www.payanyway.ru/assistant.htm" method="post" target="_self"-->
+            <form t-if="acquirer" t-att-action="tx_url" method="post" target="_self">
+                 <input type='hidden' name='MNT_ID' t-att-value='tx_values["MNT_ID"]'/>
+                 <input type='hidden' name='MNT_AMOUNT' t-att-value='tx_values["MNT_AMOUNT"] or "0.0"'/>
+           		 <input type="hidden" name="MNT_TRANSACTION_ID" t-att-value='tx_values["MNT_TRANSACTION_ID"]'/>
+				 <input type="hidden" name="MNT_CURRENCY_CODE"  t-att-value='tx_values["MNT_CURRENCY_CODE"]'/>
+				 <input type="hidden" name="MNT_TEST_MODE"  t-att-value='tx_values["MNT_TEST_MODE"]'/>
+				 <input type="hidden" name="MNT_CUSTOM1" t-att-value='tx_values["MNT_CUSTOM_last_name"]'/>
+				 <input type="hidden" name="MNT_CUSTOM2" t-att-value='tx_values["MNT_CUSTOM_email"]'/>
+				 <input type="hidden" name="MNT_CUSTOM3" t-att-value='tx_values["MNT_CUSTOM_phone"]'/>
+				 <input type="hidden" name="MNT_SUCCESS_URL" t-att-value="tx_values['x_accept_url']"/>
+				 <input type="hidden" name="MNT_FAIL_URL" 	 t-att-value="tx_values['x_cancel_url']"/>
+				 <input type="hidden" name="MNT_RETURN_URL"  t-att-value="tx_values['x_return_url']"/>
+				 
+				 
+				 <!--input type="hidden" name="MNT_ID" value="00000001">
+
+				 <input type="hidden" name="MNT_SUCCESS_URL" value="https://www.magazin.ru/success.htm">
+				 <input type="hidden" name="MNT_FAIL_URL" 	 value="https://www.magazin.ru/failure.htm">
+				 <input type="hidden" name="MNT_RETURN_URL"  value="https://www.magazin.ru/payment.htm">
+				 <input type="hidden" name="MNT_INPROGRESS_URL"  value="https://www.magazin.ru/processing.htm">
+				 <input type="hidden" name="MNT_CUSTOM1" value="1234567890">
+				 <input type="hidden" name="MNT_CUSTOM2" value="abcdefghij">
+				 <input type="hidden" name="MNT_CUSTOM3" value="somebody@somewhere.com">
+				 <input type="submit" value="Pay order"-->
+
+
+				 <!--input type="hidden" name="paymentSystem.unitId" value="1017">
+				 <input type="hidden" name="paymentSystem.accountId" value="2">
+				 <input type="hidden" name="javascriptEnabled" value="true">
+				 <input type="hidden" name="followup" value="true">
+				 <input type="submit" value="Pay with Webmoney WMR">
+                <input type='hidden' name='x_login' t-att-value='tx_values["x_login"]'/>
+                <input type='hidden' name='x_fp_hash' t-att-value='tx_values["x_fp_hash"]'/>
+                <input type='hidden' name='x_amount' t-att-value='tx_values["x_amount"] or "0.0"'/>
+                <input type='hidden' name='x_show_form' t-att-value="tx_values['x_show_form']"/>
+                <input type='hidden' name='x_type' t-att-value="tx_values['x_type']"/>
+                <input type='hidden' name='x_method' t-att-value="tx_values['x_method']"/>
+                <input type='hidden' name='x_fp_sequence' t-att-value='tx_values["x_fp_sequence"]'/>
+                <input type='hidden' name='x_version' t-att-value="tx_values['x_version']"/>
+                <input type="hidden" name="x_relay_response" t-att-value="tx_values['x_relay_response']"/>
+                <input type="hidden" name="x_relay_url" t-att-value="tx_values['x_relay_url']"/>
+                <input type='hidden' name="x_fp_timestamp" t-att-value="tx_values['x_fp_timestamp']"/>
+                <input type="hidden" name='return_url' t-att-value="tx_values['returndata']"/>
+                <input type="hidden" name='x_cancel_url' t-att-value="tx_values['x_cancel_url']"/-->
+                <!--Order Information >
+                <input type='hidden' name='x_invoice_num' t-att-value='tx_values["reference"]'/>
+                <input type='hidden' name='x_currency_code' t-att-value='tx_values["x_currency_code"]'/-->
+                <!-- Billing Information>
+                <input type='hidden' name='x_first_name' t-att-value="tx_values['first_name']"/>
+                <input type='hidden' name='x_last_name' t-att-value="tx_values['last_name']"/>
+                <input type='hidden' name='x_address' t-att-value="tx_values['address']"/>
+                <input type='hidden' name='x_city' t-att-value="tx_values['city']"/>
+                <input type='hidden' name='x_zip' t-att-value="tx_values['zip']"/>
+                <input type='hidden' name='x_country' t-att-value="tx_values['country']"/>
+                <input type='hidden' name='x_phone' t-att-value='tx_values["phone"]'/>
+                <input type='hidden' name='x_email' t-att-value="tx_values['email']"/>
+                <input type='hidden' name='x_state' t-att-value="tx_values['state']"/-->
+                <!-- Submit-->
+                <button type="submit" width="100px" t-att-class="submit_class">
+                    <img t-if="not submit_txt" src="/sba_payment_moneta/static/src/img/moneta_icon.png"/>
+                    <span t-if="submit_txt"><t t-esc="submit_txt"/> <span class="fa fa-long-arrow-right"/></span>
+                </button>
+            </form>
+        </template>
+    </data>
+</openerp>

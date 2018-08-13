@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+	<!-- Module view modification -->
+	<record model="ir.ui.view" id="module_sba_default_tree">
+		<field name="name">module.module.sba_default</field>
+		<field name="model">ir.module.module</field>
+		<field name="inherit_id" ref="base.module_tree" />
+		<field name="arch" type="xml">
+			<field name="state" position="after">
+				<field name="sba_def_module"/>
+			</field>
+		</field>
+	</record>
+	<record model="ir.ui.view" id="module_sba_default_form">
+		<field name="name">module.module.sba_default</field>
+		<field name="model">ir.module.module</field>
+		<field name="inherit_id" ref="base.module_form" />
+		<field name="arch" type="xml">
+			<field name="summary" position="after">
+				<field name="sba_def_module"/>
+			</field>
+			<button name="button_immediate_install" position="after">
+                <button name="button_set_default" string="Set as default" type="object" class="btn btn-default"/>
+			</button>
+		</field>
+	</record>
+	<!--record id="action_server_module_set_default" model="ir.actions.act_window">
+		<field name="name">Set as default</field>
+		<field name="res_model">ir.module.module</field>
+		<field name="view_mode">tree,form</field>
+		<field name="state">code</field>
+		<field name="code">records.button_set_default()</field>
+	</record-->
+
+	<record id="action_server_module_set_default" model="ir.actions.server">
+		<field name="name">Set as default</field>
+		<field name="condition">True</field>
+		<field name="type">ir.actions.server</field>
+		<field name="model_id" ref="model_ir_module_module" />
+		<field name="state">code</field>
+		<field name="code">records.button_set_default()</field>
+	</record>
+
+	<record model="ir.values" id="action_server_module_set_default">
+		<field name="name">action_module_set_default</field>
+		<field name="action_id" ref="action_server_module_set_default" />
+		<field name="value" eval="'ir.actions.server,' + str(ref('action_server_module_set_default'))" />
+		<field name="key">action</field>
+		<field name="model_id" ref="model_ir_module_module" />
+		<field name="model">ir.module.module</field>
+		<field name="key2">client_action_multi</field>
+	</record>
+
+    </data>
+</openerp>
+
+
+

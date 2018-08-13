@@ -1,0 +1,290 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        
+    
+            
+    <record model="ir.ui.view" id="pofatt.view_pofatt_form">
+        <field name="name">power of attorney</field>
+        <field name="model">pofatt</field>
+        
+        
+        <field name="arch" type="xml">
+                
+            <form string="power of attorney" >
+            
+                <header>
+                
+                
+                </header>
+            
+                <sheet>
+        	        
+        	        <div class="oe_title">  
+        	         <field name="direction" widget="radio"  attrs="{'required': True}" /> 
+        	        </div> 
+                    
+        	        <div class="oe_title">  
+        	        
+        	        </div> 
+                    
+        	        <div class="oe_title">  
+        	        
+        	        </div> 
+                    
+        	        <div class="oe_title">  
+        	        
+        	        </div> 
+                    
+        	        <div class="oe_title">  
+        	        
+        	        </div> 
+                    
+        	        <div class="oe_title">  
+        	         <field name="partner_id" string="Partner"   /> 
+        	        </div> 
+                    
+        	        <div class="oe_title">  
+        	        
+        	        </div> 
+                    
+        	        <div class="oe_title">  
+        	        
+        	        </div> 
+                    
+        	        <div class="oe_title">  
+        	        
+        	        </div> 
+                    
+        	        
+        	        <group col="4">
+        	        
+        	            <field name="direction" widget="radio"  attrs="{'required': True}" />
+        	            <field name="department_id" string="Department"  widget="many2one"  attrs="{'required': True}" />
+        	            <field name="number"  />
+        	            <field name="Emithent_id" string="Emithent"   />
+        	            <field name="Owner_id" string="Owner"   />
+        	            <field name="partner_id" string="Partner"   />
+        	            <field name="part_hr_employee_id" string="part_hr_employee_id"  domain="[('company_id','=',partner_id)]"   />
+        	            <field name="date_start" widget="date"   />
+        	            <field name="date_end" widget="date"   />
+        	        </group>
+        	    
+        	        <notebook>
+        	            <page string="Details">
+        	                <group  col="4">
+        						<field name="pofatt_lines_ids" widget="one2many_list"  nolabel="1"   context="{'form_view_id': 'view_pofatt_lines_form', 'tree_view_id': 'view_pofatt_lines_tree'}" />
+        
+                
+        	                </group>
+        	            </page>
+        	            <page string="2 Text">
+        	                <group  col="4">
+        						<field name="note" string="Note"   />
+        						<field name="base" string="Состояние"  widget="char"   />
+        	                </group>
+        	            </page>
+        	        </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    
+            
+    <record model="ir.ui.view" id="pofatt.view_pofatt_tree">
+        <field name="name">power of attorney</field>
+        <field name="model">pofatt</field>
+        
+        
+        <field name="arch" type="xml">
+                
+            <tree string="power of attorney">
+                <field name="direction" />
+                <field name="number" />
+                <field name="date_start" />
+                <field name="date_end" />
+                <field name="State" />
+                <field name="department_id" />
+                <field name="partner_id" />
+                <field name="Owner_id" />
+                <field name="Emithent_id" />
+                <field name="State" />
+            </tree>
+                
+        </field>
+    </record>
+
+    
+            
+    <record model="ir.ui.view" id="pofatt.view_pofatt_lines_form">
+        <field name="name">pofatt_lines</field>
+        <field name="model">pofatt_lines</field>
+        
+        
+        <field name="arch" type="xml">
+                
+            <form string="pofatt_lines" >
+            
+                <sheet>
+        	        
+        	        
+        	        
+        	        
+                    
+        	        
+        	        
+        	        
+                    
+        	        
+        	        
+        	        
+                    
+        	        
+        	        
+        	        
+                    
+        	        
+        	        <group col="4">
+        	        
+        	            <field name="product_product_id" widget="many2one"  attrs="{'required': True}" />
+        	            <field name="price"  />
+        	            <field name="qtt"  />
+        	            <field name="product_uom_id" widget="many2one"   />
+        	        </group>
+        	    
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    
+            
+    <record model="ir.ui.view" id="pofatt.view_pofatt_lines_tree">
+        <field name="name">pofatt_lines</field>
+        <field name="model">pofatt_lines</field>
+        
+        
+        <field name="arch" type="xml">
+                
+            <tree string="pofatt_lines">
+                <field name="product_product_id" readonly="True"  />
+                <field name="price" readonly="True"  />
+                <field name="qtt" readonly="True"  />
+                <field name="product_uom_id" readonly="True"  />
+            </tree>
+                
+        </field>
+    </record>
+
+    
+            
+    <record model="ir.ui.view" id="pofatt.view_pofatt_calendar">
+        <field name="name">power of attorney</field>
+        <field name="model">pofatt</field>
+        
+        
+        <field name="arch" type="xml">
+                
+            <calendar string="power of attorney" date_start="date_start"  date_stop="date_end"  color="State"  quick_add="false" >
+            
+            </calendar>
+        </field>
+    </record>
+
+    
+            
+    <record model="ir.ui.view" id="pofatt.view_pofatt_gantt">
+        <field name="name">power of attorney</field>
+        <field name="model">pofatt</field>
+        
+        
+        <field name="arch" type="xml">
+                
+            <gantt string="power of attorney" date_start="date_start"  date_stop="date_end"  color="State"  mode="month"  default_group_by="department_id" >
+            
+            </gantt>
+        </field>
+    </record>
+
+    
+            
+    <record model="ir.ui.view" id="pofatt.view_pofatt_kanban">
+        <field name="name">power of attorney</field>
+        <field name="model">pofatt</field>
+        
+        
+        <field name="arch" type="xml">
+                
+            <kanban string="power of attorney">
+            
+                
+            <field name="number" />
+        
+                
+            <field name="date_start" />
+        
+                
+            <field name="date_end" />
+        
+                
+            <field name="department_id" />
+        
+                
+            <field name="partner_id" />
+        
+                
+            <field name="part_hr_employee_id" />
+        
+                
+            <field name="Owner_id" />
+        
+                
+            <field name="Emithent_id" />
+        
+                
+            <field name="direction" />
+        
+                
+            <field name="State" />
+        
+                
+            <field name="note" />
+        
+                
+            <field name="base" />
+        
+                
+            <field name="pofatt_lines_ids" />
+        
+            
+            </kanban>
+        </field>
+    </record>
+
+    
+            
+    <record model="ir.ui.view" id="pofatt.view_pofatt_search">
+        <field name="name">power of attorney</field>
+        <field name="model">pofatt</field>
+        
+        
+        <field name="arch" type="xml">
+                
+            <search string="power of attorney">
+            
+                <field name="number" />
+                <filter  string="test"  context="{'group_by':'date_start'}"  />
+            
+                <group string="test">
+                        <separator  />
+                </group>
+            
+            </search>
+        </field>
+    </record>
+
+    
+
+    </data>
+</openerp>

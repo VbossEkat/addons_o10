@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="view_model_form" model="ir.ui.view">
+        <field name="name">website_form recap</field>
+        <field name="model">ir.model</field>
+        <field name="inherit_id" ref="base.view_model_form"/>
+        <field name="arch" type="xml">
+            <!-- Model website_form management -->
+            <xpath expr="//field[@name='model']/../..">
+                <group name="website_form_recap" string="Website Forms reCaptcha">
+                    <field name="website_form_recaptcha"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_model_form_tree" model="ir.ui.view">
+        <field name="name">website_form_tree recap</field>
+        <field name="model">ir.model</field>
+        <field name="inherit_id" ref="base.view_model_tree"/>
+ 		<field name="arch" type="xml">
+			<field name="transient" position="after">
+                    <field name="website_form_recaptcha"/>
+			</field>
+		</field>
+    </record>
+</odoo>
+
+
+

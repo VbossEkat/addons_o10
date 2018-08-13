@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+	<!-- Partner view modification -->
+         <record id="view_partner_form_sba_ru" model="ir.ui.view">
+                <field name="name">res.partner.form</field>
+                <field name="model">res.partner</field>
+                <field name="type">form</field>
+                <field name="inherit_id" ref="base.view_partner_form"/>
+                <!--field name="inherit_id" ref="l10n_ru_doc.view_partner_ru_form"/-->
+                <field name="arch" type="xml">
+                    <!--xpath expr="//field[@name='kpp']" position="after"-->
+                    <xpath expr="//field[@name='title']" position="after">
+                                <field name="sba_ogrn" attrs="{'invisible': [('is_company','=', False)]}"/>
+                    </xpath>
+                </field>
+        </record>
+        <record id="view_company_form_sba_ru" model="ir.ui.view">
+                <field name="name">res.company.form</field>
+                <field name="model">res.company</field>
+                <field name="type">form</field>
+                <field name="inherit_id" ref="base.view_company_form"/>
+                <field name="arch" type="xml">
+                    <xpath expr="//field[@name='company_registry']" position="after">
+                                <field name="sba_ogrn" />
+                    </xpath>
+                </field>
+        </record>
+        <template id="sba_footer_default" inherit_id="website.footer_default" customize_show="True" name="Automatic SBA Footer">
+            <!--xpath expr="//span[@t-field='res_company.name']" position="replace"-->
+            <xpath expr="//a[@href='/page/website.aboutus']" position="after">
+                <!--p><small> ОГРН: <span t-field="res_company.sba_ogrn"/> </small></p-->
+                <h4>ОГРН: <span t-field="res_company.sba_ogrn"/></h4>
+            </xpath>
+        </template>
+        <template id="sba_contact" inherit_id="base.contact">
+            <xpath expr="//address/div" position="after">
+                <div t-if="sba_ogrn and 'sba_ogrn' in fields" class='css_editable_mode_hidden'>
+                    <div itemprop="sba_ogrn" t-esc="res_company.sba_ogrn"
+                        style="margin-top:4px;margin-bottom:4px;font-size:10px;"/>
+                </div>
+           </xpath>
+        </template>
+    </data>
+</openerp>
+
+
+

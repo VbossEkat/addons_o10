@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pofatt_pofatt_base.group_sale_manager,pofatt pofatt_base.group_sale_manager,pofatt.model_pofatt,base.group_sale_manager,1,1,1,0
+
+access_pofatt_pofatt_purchase.group_purchase_manager,pofatt pofatt_purchase.group_purchase_manager,pofatt.model_pofatt,purchase.group_purchase_manager,1,1,1,0
+
+access_pofatt_pofatt_base.group_user,pofatt pofatt_base.group_user,pofatt.model_pofatt,base.group_user,1,0,0,0
+

@@ -1,0 +1,262 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pofatt
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: SbaErp Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-01-22 12:44+0000\n"
+"PO-Revision-Date: 2016-01-22 18:13+0500\n"
+"Last-Translator: Владимир Глухов (СБА) <bosslegend2010@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: ru\n"
+"X-Generator: Poedit 1.6.10\n"
+
+#. module: pofatt
+#: view:pofatt:pofatt.view_pofatt_form
+msgid "2 Text"
+msgstr "Описание"
+
+#. module: pofatt
+#: model:ir.actions.act_window,help:pofatt.action_pofatt_1
+msgid ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"            Click to create a new model.\n"
+"          </p><p>\n"
+"            This is an example of help content.\n"
+"          </p>\n"
+"            "
+msgstr ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"            Click to create a new model.\n"
+"          </p><p>\n"
+"            This is an example of help content.\n"
+"          </p>\n"
+"            "
+
+#. module: pofatt
+#: model:ir.ui.menu,name:pofatt.menu_stock_action_picking_type_list
+msgid "All Operations"
+msgstr "Все операции"
+
+#. module: pofatt
+#: view:pofatt:pofatt.view_pofatt_form field:pofatt,base:0
+msgid "Base"
+msgstr "Base"
+
+#. module: pofatt
+#: selection:pofatt,state:0
+msgid "Canceled"
+msgstr "Отменено"
+
+#. module: pofatt
+#: selection:pofatt,state:0
+msgid "Confirmed"
+msgstr "Утверждено"
+
+#. module: pofatt
+#: field:pofatt,create_uid:0 field:pofatt_lines,create_uid:0
+msgid "Created by"
+msgstr "Создано"
+
+#. module: pofatt
+#: field:pofatt,create_date:0 field:pofatt_lines,create_date:0
+msgid "Created on"
+msgstr "Создано"
+
+#. module: pofatt
+#: field:pofatt,department_id:0
+msgid "Department"
+msgstr "Отдел"
+
+#. module: pofatt
+#: view:pofatt:pofatt.view_pofatt_form
+msgid "Details"
+msgstr "Продукция"
+
+#. module: pofatt
+#: field:pofatt,direction:0
+msgid "Direction"
+msgstr "Тип доверенности"
+
+#. module: pofatt
+#: selection:pofatt,state:0
+msgid "Draft"
+msgstr "Черновик"
+
+#. module: pofatt
+#: field:pofatt,Emithent_id:0
+msgid "Emithent"
+msgstr "Выписал"
+
+#. module: pofatt
+#: field:pofatt,id:0 field:pofatt_lines,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: pofatt
+#: selection:pofatt,direction:0
+msgid "Input"
+msgstr "от Контрагента"
+
+#. module: pofatt
+#: field:pofatt,write_uid:0 field:pofatt_lines,write_uid:0
+msgid "Last Updated by"
+msgstr "Обновлено"
+
+#. module: pofatt
+#: field:pofatt,write_date:0 field:pofatt_lines,write_date:0
+msgid "Last Updated on"
+msgstr "Обновлено"
+
+#. module: pofatt
+#: view:pofatt:pofatt.view_pofatt_form field:pofatt,note:0
+msgid "Note"
+msgstr "Примечание"
+
+#. module: pofatt
+#: field:pofatt,number:0
+msgid "Number"
+msgstr "Номер"
+
+#. module: pofatt
+#: selection:pofatt,direction:0
+msgid "Output"
+msgstr "от Нас"
+
+#. module: pofatt
+#: field:pofatt,Owner_id:0
+msgid "Owner"
+msgstr "Доверенное лицо"
+
+#. module: pofatt
+#: view:pofatt:pofatt.view_pofatt_form
+msgid "Owner_id"
+msgstr "Доверенное лицо"
+
+#. module: pofatt
+#: field:pofatt,partner_id:0
+msgid "Partner"
+msgstr "Контрагент"
+
+#. module: pofatt
+#: model:ir.ui.menu,name:pofatt.pofatt_main_menu
+msgid "Pofatt operations"
+msgstr "Действия с Доверенностями"
+
+#. module: pofatt
+#: field:pofatt,pofatt_lines_ids:0
+msgid "Pofatt_lines"
+msgstr "Строки"
+
+#. module: pofatt
+#: field:pofatt_lines,pofatt_id:0
+msgid "Power of attorney"
+msgstr "Power of attorney"
+
+#. module: pofatt
+#: field:pofatt_lines,price:0
+msgid "Price"
+msgstr "Цена"
+
+#. module: pofatt
+#: field:pofatt_lines,product_product_id:0
+msgid "Product"
+msgstr "Продукция"
+
+#. module: pofatt
+#: field:pofatt_lines,product_uom_id:0
+msgid "Product unit of measure"
+msgstr "Ед. измерения"
+
+#. module: pofatt
+#: model:ir.actions.act_window,name:pofatt.action_pofatt_1
+#: model:ir.ui.menu,name:pofatt.pofatt_action_todo_menu
+msgid "To do pofatt_Cur Window"
+msgstr "Тест To do pofatt_Cur Window"
+
+#. module: pofatt
+#: model:ir.actions.act_window,name:pofatt.act_pofatt_4
+#: model:ir.ui.menu,name:pofatt.menu_act_pofatt_4
+msgid "To do pofatt_New Window"
+msgstr "Тест To do pofatt_New Window"
+
+#. module: pofatt
+#: model:ir.actions.act_window,name:pofatt.act_pofatt_2
+#: model:ir.ui.menu,name:pofatt.menu_act_pofatt_2
+msgid "To do pofatt_inline_edit"
+msgstr "Тест To do pofatt_inline_edit"
+
+#. module: pofatt
+#: model:ir.actions.act_window,name:pofatt.act_pofatt_3
+#: model:ir.ui.menu,name:pofatt.menu_act_pofatt_3
+msgid "To do pofatt_inline_view"
+msgstr "Тест To do pofatt_inline_view"
+
+#. module: pofatt
+#: selection:pofatt,state:0
+msgid "Used"
+msgstr "Применялось"
+
+#. module: pofatt
+#: field:pofatt,date_end:0
+msgid "date_end"
+msgstr "Окончание"
+
+#. module: pofatt
+#: field:pofatt,date_start:0
+msgid "date_start"
+msgstr "Начало"
+
+#. module: pofatt
+#: field:pofatt,part_hr_employee_id:0
+msgid "part_hr_employee"
+msgstr "Представитель контрагента"
+
+#. module: pofatt
+#: view:pofatt:pofatt.view_pofatt_form
+msgid "part_hr_employee_id"
+msgstr "Представитель контрагента"
+
+#. module: pofatt
+#: view:pofatt:pofatt.view_pofatt_form
+msgid "partner_id"
+msgstr "Контрагент"
+
+#. module: pofatt
+#: model:ir.module.category,name:pofatt.module_category_pofatt
+msgid "pofatt_"
+msgstr "Доверенности"
+
+#. module: pofatt
+#: view:pofatt_lines:pofatt.view_pofatt_lines_form
+#: view:pofatt_lines:pofatt.view_pofatt_lines_tree
+msgid "pofatt_lines"
+msgstr "Строки"
+
+#. module: pofatt
+#: model:ir.model,name:pofatt.model_pofatt view:pofatt:pofatt.view_pofatt_form
+#: view:pofatt:pofatt.view_pofatt_tree
+msgid "power of attorney"
+msgstr "Доверенности"
+
+#. module: pofatt
+#: field:pofatt_lines,qtt:0
+msgid "qtt"
+msgstr "Количество"
+
+#. module: pofatt
+#: model:ir.ui.menu,name:pofatt.menu_action_pofatt_root
+msgid "Доверенности"
+msgstr "Доверенности"
+
+#. module: pofatt
+#: field:pofatt,state:0
+msgid "Стадия"
+msgstr "Стадия"

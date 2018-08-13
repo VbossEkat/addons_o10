@@ -1,0 +1,155 @@
+
+<?xml version="1.0"?>
+<form string="Module">
+<sheet>
+    <field name="icon_image" widget="image" class="oe_avatar oe_left"/>
+    <div class="oe_title">
+        <h1>
+            <field name="human_name" placeholder="ex: Module Prototyper"/>
+        </h1>
+        <div>
+            <button name="682" string="Export" type="action"/>
+        </div>
+    </div>
+    <group>
+        <group>
+            <field name="name" placeholder="ex: module_prototyper"/>
+            <field name="summary" placeholder="ex: Prototype your module."/>
+            <field name="category_id" placeholder="ex: Others, Sales, Website"/>
+            <field name="version"/>
+            <field name="license"/>
+        </group>
+        <group>
+            <field name="author" placeholder="ex: Odoo Community Association"/>
+            <field name="website" widget="url" placeholder="ex: http://odoo-community.org/"/>
+            <field name="maintainer" placeholder="ex: Odoo Community Association"/>
+            <field name="auto_install"/>
+            <field name="application"/>
+        </group>
+    </group>
+    <notebook>
+        <page string="Description">
+            <field name="description"/>
+        </page>
+        <page string="Dependencies">
+            <field name="dependency_ids"/>
+        </page>
+        <page string="Fields">
+            <label for="field_ids"/>
+            <field name="field_ids"/>
+        </page>
+        <page string="Interface">
+            <label for="view_ids"/>
+            <field name="view_ids"/>
+            <label for="menu_ids"/>
+            <field name="menu_ids"/>
+        </page>
+        <page string="Data &amp; Demo">
+            <label for="data_ids"/>
+            <field name="data_ids"/>
+            <label for="demo_ids"/>
+            <field name="demo_ids"/>
+        </page>
+        <page string="Reports">
+            <label for="report_ids"/>
+            <field name="report_ids"/>
+        </page>
+        <page string="Security">
+            <label for="group_ids"/>
+            <field name="group_ids"/>
+            <label for="right_ids"/>
+            <field name="right_ids"/>
+            <label for="rule_ids"/>
+            <field name="rule_ids"/>
+        </page>
+        <page string="Workflows">
+            <label for="activity_ids"/>
+            <field name="activity_ids"/>
+            <label for="transition_ids"/>
+            <field name="transition_ids"/>
+        </page>
+        <page string="Website">
+        </page>
+    </notebook>
+</sheet>
+</form>
+
+
+<form string="Product">
+    <header>
+        <button string="Variant Prices" type="action" name="121" attrs="{'invisible': [('product_variant_count', '&lt;=', 1)]}" groups="product.group_product_variant"/>
+    </header>
+    <sheet>
+        <field name="product_variant_count" invisible="1"/>
+        <field name="id" invisible="True"/>
+        <div class="oe_button_box" name="button_box">
+            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                <field name="active" widget="boolean_button" options="{&quot;terminology&quot;: &quot;archive&quot;}"/>
+            </button>
+        </div>
+        <field name="image_medium" widget="image" class="oe_avatar"/>
+        <div class="oe_title">
+            <label class="oe_edit_only" for="name" string="Product Name"/>
+            <h1><field name="name" placeholder="Product Name"/></h1>
+            <div name="options" groups="base.group_user">
+                <div>
+                    <field name="sale_ok"/>
+                    <label for="sale_ok"/>
+                </div>
+                <div>
+                    <field name="purchase_ok"/>
+                    <label for="purchase_ok"/>
+                </div>
+            </div>
+        </div>
+        <notebook>
+            <page string="General Information" name="general_information">
+                <group>
+                    <group name="group_general">
+                        <field name="type"/>
+                        <field name="categ_id" string="Internal Category"/>
+                    </group>
+                    <group name="group_standard_price">
+                        <field name="list_price" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                        <label for="standard_price" groups="base.group_user"/>
+                        <div name="standard_price_uom" groups="base.group_user">
+                            <field name="standard_price" widget="monetary" options="{'currency_field': 'currency_id'}" class="oe_inline"/>
+                        </div>
+                        <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
+                        <field name="uom_id" groups="product.group_uom" options="{'no_create': True}"/>
+                        <field name="uom_po_id" groups="product.group_uom" options="{'no_create': True}"/>
+                        <field name="currency_id" invisible="1"/>
+                    </group>
+                </group>
+            </page>
+            <page string="Sales" attrs="{'invisible':[('sale_ok','=',False)]}" name="sales">
+                <div name="pricelist_item" groups="product.group_product_pricelist">
+                    <separator string="Pricing"/>
+                    <field name="item_ids" nolabel="1" context="{'default_base':'list_price', 'default_applied_on' :'1_product'}">
+                        <tree string="Pricelist Items" editable="bottom">
+                            <field name="pricelist_id" string="Pricelist" required="1"/>
+                            <field name="fixed_price" string="Price" required="1"/>
+                            <field name="min_quantity"/>
+                            <field name="date_start"/>
+                            <field name="date_end"/>
+                            <field name="applied_on" invisible="1"/>
+                        </tree>
+                    </field>
+                </div>
+                <group name="sale">
+                    <group name="email_template_and_project" attrs="{'invisible':[('type', '!=', 'service')]}"/>
+                </group>
+            </page>
+            <page string="Notes" name="notes">
+                <group name="description">
+                    <separator string="Description for Quotations" colspan="4"/>
+                    <field name="description_sale" colspan="4" nolabel="1" placeholder="This note will be displayed on the quotations."/>
+                </group>
+             </page>
+        </notebook>
+    </sheet>
+    <div class="oe_chatter">
+        <field name="message_follower_ids" widget="mail_followers"/>
+        <field name="message_ids" widget="mail_thread"/>
+    </div>
+</form>

@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        
+
+    <template id="themes" inherit_id="website.themes" name="Themes">
+        <xpath expr="//div[@id='themes-list']" position="inside">
+            
+                
+            <div class="col-md-4">
+                <div class="well text-center">
+                    
+                    <div class="options">
+                        <h3>Theme_pof_lay</h3>
+                        <p>False</p>
+                        <a class="btn btn-info" href="/website/theme_change?theme_id=pofatt.Theme_pof_lay">Apply</a>
+                    </div>
+                </div>
+            </div>
+            
+                
+            <div class="col-md-4">
+                <div class="well text-center">
+                    
+                    <div class="options">
+                        <h3>Theme_pof_color</h3>
+                        <p>False</p>
+                        <a class="btn btn-info" href="/website/theme_change?theme_id=pofatt.Theme_pof_color">Apply</a>
+                    </div>
+                </div>
+            </div>
+            
+        </xpath>
+    </template>
+
+    <!--
+         Theme assets
+    -->
+
+    
+        
+            <template id="pofatt.Theme_pof_lay" name="Theme_pof_lay" inherit_id="website.theme" active="False" customize_show="True">
+                <xpath expr="//link[@id='bootstrap_css']" position="after">
+                    
+                </xpath>
+            </template>
+    
+        
+            <template id="pofatt.Theme_pof_color" name="Theme_pof_color" inherit_id="website.theme" active="False" customize_show="True">
+                <xpath expr="//link[@id='bootstrap_css']" position="after">
+                    
+                </xpath>
+            </template>
+    
+
+
+    </data>
+</openerp>

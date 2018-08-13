@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        
+        <record model="ir.actions.act_window" id="pofatt.action_pofatt_1">
+            <field name="name">To do pofatt_Cur Window</field>
+            <field name="res_model">pofatt</field>
+            <!--field name="view_ids" ref="pofatt.view_pofatt_tree"/-->
+            <field name="view_mode">tree,form,kanban,gantt,calendar,search</field>
+            <field name="view_type">form</field>
+            <field name="target">current</field>
+            <field name="auto_search">False</field>
+            <field name="multi">True</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Для нажатия новой доверенности, нажмите "Создать"</p>
+            </field>
+        </record>
+
+    
+        <record model="ir.actions.act_window" id="pofatt.act_pofatt_2">
+            <field name="name">To do pofatt_inline_edit</field>
+            <field name="res_model">pofatt</field>
+            <!--field name="view_ids" ref="pofatt.view_pofatt_form"/-->
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="target">inline</field>
+            
+        </record>
+
+    
+        <record model="ir.actions.act_window" id="pofatt.act_pofatt_3">
+            <field name="name">To do pofatt_inline_view</field>
+            <field name="res_model">pofatt</field>
+            <!--field name="view_ids" ref="pofatt.view_pofatt_tree"/-->
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="target">inlineview</field>
+            
+        </record>
+
+    
+        <record model="ir.actions.act_window" id="pofatt.act_pofatt_4">
+            <field name="name">To do pofatt_New Window</field>
+            <field name="res_model">pofatt</field>
+            <!--field name="view_ids" ref="pofatt.view_pofatt_tree"/-->
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="target">new</field>
+            
+     </record>
+     </data>
+     </openerp>
+     

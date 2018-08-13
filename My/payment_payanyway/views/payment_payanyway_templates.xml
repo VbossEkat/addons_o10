@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="payanyway_acquirer_button">
+        <form t-if="acquirer.payanyway_mnt_id" t-att-action="tx_url" method="post" target="_self">
+            <input type="hidden" name="MNT_ID" t-att-value='MNT_ID' />
+            <input type="hidden" name="MNT_AMOUNT" t-att-value='MNT_AMOUNT' />
+            <input type="hidden" name="MNT_TRANSACTION_ID" t-att-value='MNT_TRANSACTION_ID' />
+            <input type="hidden" name="MNT_TEST_MODE" t-att-value='MNT_TEST_MODE' />
+            <input type="hidden" name="MNT_DESCRIPTION" t-att-value='MNT_DESCRIPTION' />
+            <input type="hidden" name="MNT_SIGNATURE" t-att-value='MNT_SIGNATURE' />
+            <input type="hidden" name="MNT_CUSTOM1" t-att-value='MNT_CUSTOM1' />
+            <input type="hidden" name="MNT_CUSTOM2" t-att-value='MNT_CUSTOM2' />
+            <input type="hidden" name="MNT_CUSTOM3" t-att-value='MNT_CUSTOM3' />
+            <input type="hidden" name="MNT_SUCCESS_URL" t-att-value='MNT_SUCCESS_URL' />
+            <input type="hidden" name="MNT_FAIL_URL" t-att-value='MNT_FAIL_URL' />
+            <input type="hidden" name="MNT_RETURN_URL" t-att-value='MNT_RETURN_URL' />
+            <input type="hidden" name="MNT_CURRENCY_CODE" t-att-value='MNT_CURRENCY_CODE' />
+            <!-- submit -->
+            <button type="submit" width="100px" t-att-class="submit_class">
+                <img t-if="not submit_txt" src="/payment_payanyway/static/src/img/payanyway_icon.png"/>
+                <span t-if="submit_txt"><t t-esc="submit_txt"/> <span class="fa fa-long-arrow-right"/></span>
+            </button>
+        </form>
+    </template>
+</odoo>
